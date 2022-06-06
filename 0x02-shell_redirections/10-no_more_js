@@ -1,2 +1,2 @@
 #!/bin/bash
-rm *.js */*.js 2> error
+find ./*.js -maxdepth 2 -type f | rm
