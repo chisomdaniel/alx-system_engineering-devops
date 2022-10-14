@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Using while loop to display text
+i=0
+while [ "$i" -lt 10 ]
+do
+	echo "Best School"
+	(("i += 1"))
+done
