@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# dispay the content of the current directory
+# shellcheck disable=all
+
+for i in "1"; do
+	ls | cut -d- -f2
+done

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Displays numbers from 1 to 100
+
+for i in {1..100}; do
+	((a=i%3))
+	((b=i%5))
+	if [ $a -eq 0 ] && [ $b -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ $a -eq 0 ]; then
+		echo "Fizz"
+	elif [ $b -eq 0 ]; then
+		echo "Buzz"
+	else
+		echo $i
+	fi
+done
