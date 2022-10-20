@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script print some information about the connected network
+
+netstat -tulpen
