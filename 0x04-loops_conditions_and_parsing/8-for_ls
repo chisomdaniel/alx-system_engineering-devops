@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # dispay the content of the current directory
 
-for i in "1"; do
-	if [ $i -eq 1 ]; then
-		find | cut -d/ -f2 | cut -d- -f2
+file=$(ls)
+num=1
+for i in $num; do
+	if [ $i = 1 ]; then
+		echo "$file" | cut -d "-" -f 2
 	fi
 done
