@@ -2,12 +2,12 @@
 
 file_line { 'private_key':
   ensure => 'present',
-  path   => './2-ssh_config',
+  path   => '/etc/ssh/ssh_config',
   line   => 'HostKey ~/.ssh/school'
 }
 
 file_line { 'password_auth':
   ensure => 'present',
-  path   => './2-ssh_confing',
+  path   => '/etc/ssh/ssh_config',
   line   => 'PasswordAuthentication no'
 }
