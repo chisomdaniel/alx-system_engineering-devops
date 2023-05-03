@@ -17,7 +17,7 @@ cp ~/new /var/www/html/index.nginx-debian.html
 
 # create a redirect link
 string="server_name _;\n\trewrite ^/redirect_me(.*)$ google.com permanent;"
-sed -i "s|server_name _;|$string|"
+sed -i "s|server_name _;|$string|" /etc/nginx/sites-available/default
 
 # restart nginx
 service nginx restart
