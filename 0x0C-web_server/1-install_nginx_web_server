@@ -14,3 +14,5 @@ ufw allow 'Nginx HTTP'
 # set it up to match the requirment
 echo 'Hello World!' > ~/new
 cp ~/new /var/www/html/index.nginx-debian.html
+
+service nginx restart
