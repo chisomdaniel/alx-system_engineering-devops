@@ -21,3 +21,5 @@ sed -i "s|$string|try_files $uri $uri/ =404;|" /etc/nginx/sites-available/defaul
 
 # restart nginx
 service nginx restart
+
+exit 1
