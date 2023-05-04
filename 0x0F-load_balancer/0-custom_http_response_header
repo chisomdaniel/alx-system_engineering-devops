@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Setting up a web server
 # make sure you run the file with sudo priviledges
-# shellcheck disable=SC2154
 
 # update and upgrade the shell
 apt update -y && sudo apt upgrade -y
@@ -17,7 +16,6 @@ echo 'Hello World!' > ~/new
 cp ~/new /var/www/html/index.nginx-debian.html
 
 # add a custom header
-
 string="try_files \$uri \$uri/ =404;\n\tadd_header X-Served-By \"$(hostname)\";"
 sed -i "s|$string|try_files $uri $uri/ =404;|" /etc/nginx/sites-available/default
 
