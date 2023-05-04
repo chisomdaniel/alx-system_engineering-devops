@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Setting up a web server
+# make sure you run the file with sudo priviledges
+
+# update and upgrade the shell
+apt update -y && sudo apt upgrade -y
+
+# install nginx
+apt install nginx -y
+
+# adjust the fire wall
+ufw allow 'Nginx HTTP'
+
+# set it up to match the requirment
+echo 'Hello World!' > ~/new
+cp ~/new /var/www/html/index.nginx-debian.html
+
+# add a custom header
+
+string="try_files \$uri \$uri/ =404;\n\tadd_header X-Served-By \"$(hostname)\";"
+sed -i "s|try_files $uri $uri/ =404;|$string|" /etc/nginx/sites-available/default
+
+# restart nginx
+service nginx restart
