@@ -19,7 +19,7 @@ cp ~/new /var/www/html/index.nginx-debian.html
 # add a custom header
 
 string="try_files \$uri \$uri/ =404;\n\tadd_header X-Served-By \"$(hostname)\";"
-sed -i "s|try_files $uri $uri/ =404;|$string|" /etc/nginx/sites-available/default
+sed -i "s|$string|try_files $uri $uri/ =404;|" /etc/nginx/sites-available/default
 
 # restart nginx
 service nginx restart
