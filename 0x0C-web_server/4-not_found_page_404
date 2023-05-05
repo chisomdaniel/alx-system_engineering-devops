@@ -15,7 +15,12 @@ ufw allow 'Nginx HTTP'
 echo 'Hello World!' > ~/new
 cp ~/new /var/www/html/index.nginx-debian.html
 
-# create a redirect link
+# custom 404 page
+echo "Ceci n'est pas une page" > ~/new
+cp ~/new /var/www/html/custom_404.html
+rm ~/new
+
+# create a redirect link and add 404 page
 string="server_name _;\n\trewrite ^/redirect_me(.*)$ google.com permanent;\n\n\terror_page 404 /custom_404.html;\n"
 sed -i "s|server_name _;|$string|" /etc/nginx/sites-available/default
 
