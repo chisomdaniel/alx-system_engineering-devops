@@ -25,8 +25,8 @@ string="server_name _;\n\trewrite ^/redirect_me(.*)$ google.com permanent;\n\n\t
 sed -i "s|server_name _;|$string|" /etc/nginx/sites-available/default
 
 # Add custom headers
-string="try_files \$uri \$uri/ =404;\n\tadd_header X-Served-By \"$(hostname)\";"
-sed -i "s|$string|try_files $uri $uri/ =404;|" /etc/nginx/sites-available/default
+string="try_files \$uri \$uri/ =404;\n\tadd_header X-Served-By $HOSTNAME;"
+sed -i "s|try_files \$uri \$uri/ =404;|$string|" /etc/nginx/sites-available/default
 
 # restart nginx
 service nginx restart
