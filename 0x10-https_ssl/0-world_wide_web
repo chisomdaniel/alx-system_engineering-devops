@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+# A Bash script that will display information about subdomains
+# shellcheck disable=SC2086
+
+if [ -z $1 ]; then
+	echo "Incomplete parameters provided"
+	exit
+fi
+
+
+site_info () {
+	if [ $2 ]; then
+		site="$2.$1"
+		mge=$(dig $site | grep -A1 'ANSWER SECTION:' | grep "$site")
+
+		record=$(echo $mge | awk '{print $4}')
+		site_ip=$(echo $mge | awk '{print $5}')
+
+		echo "The subdomain $2 is a $record record and points to $site_ip"
+	else
+		for sub in "www" "lb-01" "web-01" "web-02"
+		do
+			site="$sub.$1"
+			mge=$(dig $site | grep -A1 'ANSWER SECTION:' | grep "$site")
+
+                	record=$(echo $mge | awk '{print $4}')
+                	site_ip=$(echo $mge | awk '{print $5}')
+
+                	echo "The subdomain $sub is a $record record and points to $site_ip"
+		done
+	fi
+
+}
+
+site_info $1 $2
