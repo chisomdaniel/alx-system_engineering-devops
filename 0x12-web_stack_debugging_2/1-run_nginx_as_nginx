@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
 # Run nginx as `nginx` user
 
-#pkill apache2
+pkill apache2
 # grant the root user write permission
 sudo chmod u+wrx /etc/nginx/nginx.conf
 
 # change the user
-sed -i "s|#user www-data|user nginx|g" /etc/nginx/nginx.conf
+sed -i "s|#user www-data|user nginx|" /etc/nginx/nginx.conf
 
 # give proper permission to nginx user to access the
 # file (affects all users)
 chown nginx:nginx /etc/nginx/nginx.conf
 sudo chmod 0644 /etc/nginx/nginx.conf
 
-string="http {\n\tserver {\n\t\tlisten *:8080;\n\t}"
-sed -i "s|http {|$string|" /etc/nginx/nginx.conf
-
-sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
+# make nginx listen on port 8080
+sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
 
 # run as nginx user
 sudo -u nginx service nginx start
