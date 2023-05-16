@@ -5,4 +5,4 @@ if [ -z "$1" ]; then
 	exit
 fi
 
-su -c 'whoami' "$1"
+sudo -u "$1" whoami
