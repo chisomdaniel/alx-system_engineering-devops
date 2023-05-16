@@ -11,7 +11,7 @@ echo 'user nginx;' >> /etc/nginx/nginx.conf
 # file (affects all users)
 sudo chmod +r /etc/nginx/nginx.conf
 
-string="http {\n\tserver {\n\t\tlisten 0.0.0.0:8080;\n\t}"
+string="http {\n\tserver {\n\t\tlisten *:8080;\n\t}"
 sed -i "s|http {|$string|" /etc/nginx/nginx.conf
 
 # run as nginx user
