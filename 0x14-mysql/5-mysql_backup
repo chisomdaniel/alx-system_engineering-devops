@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -z $1 ]; then
+	echo "incomplete argument"
+	exit
+fi
+
+sudo mysqldump -uroot -p"$1" --all-databases > backup.sql 2> /dev/null
+filename="$(date +%d)-$(date +%m)-$(date +%Y).tar.gz"
+tar -cvzf "$filename" backup.sql
