@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # run a command as another user
 
+if [ -z "$1" ]; then
+	exit
+fi
+
 su -c 'whoami' "$1"
