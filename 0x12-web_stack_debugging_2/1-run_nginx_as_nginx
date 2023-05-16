@@ -5,10 +5,11 @@
 sudo chmod u+wrx /etc/nginx/nginx.conf
 
 # change the user
-echo 'user nginx;' >> /etc/nginx/nginx.conf
+sed -i "s|#user www-data|user nginx|" /etc/nginx/nginx.conf
 
 # give proper permission to nginx user to access the
 # file (affects all users)
+chown nginx:nginx /etc/nginx/nginx.conf
 sudo chmod +r /etc/nginx/nginx.conf
 
 string="http {\n\tserver {\n\t\tlisten *:8080;\n\t}"
