@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 '''Gets data in JSON format form a url and display it '''
-import csv
 import json
 import requests
 import sys
@@ -27,7 +26,6 @@ if __name__ == "__main__":
     task_list = []
     filename = "{}.json".format(userid_str)
     with open(filename, 'w') as f:
-        data_handler = csv.writer(f, delimiter=',')
         for task in tasks:
             if task['userId'] == user_id:
                 info_dict = {"task": task['title'],
