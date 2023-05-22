@@ -2,7 +2,6 @@
 '''Gets data in JSON format form a url and display it '''
 import requests
 import sys
-import json
 
 
 if __name__ == "__main__":
