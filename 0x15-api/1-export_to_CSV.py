@@ -28,5 +28,6 @@ if __name__ == "__main__":
         for task in tasks:
             if task['userId'] == user_id:
                 info = '"{}","{}","{}","{}"'.format(userid_str, username,
-                                                    task['completed'], task['title'])
+                                                    task['completed'],
+                                                    task['title'])
                 f.write(info)
