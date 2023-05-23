@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Gets data in JSON format form a url and display it '''
+'''Gets data in JSON format form a url and display it'''
 import csv
 import requests
 import sys
