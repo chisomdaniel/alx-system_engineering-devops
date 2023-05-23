@@ -27,7 +27,7 @@ if __name__ == "__main__":
     with open(filename, 'a') as f:
         for task in tasks:
             if task['userId'] == user_id:
-                info = '"{}","{}","{}","{}"'.format(userid_str, username,
-                                                    task['completed'],
-                                                    task['title'])
+                info = '"{}","{}","{}","{}"\n'.format(userid_str, username,
+                                                      task['completed'],
+                                                      task['title'])
                 f.write(info)
