@@ -24,9 +24,10 @@ if __name__ == "__main__":
             break
 
     filename = "{}.csv".format(userid_str)
-    with open(filename, 'w', newline='') as f:
-        data_handler = csv.writer(f, delimiter=',')
+    with open(filename, 'a') as f:
         for task in tasks:
             if task['userId'] == user_id:
-                info = [userid_str, username, task['completed'], task['title']]
-                data_handler.writerow(info)
+                info = '"{}","{}","{}","{}"\n'.format(userid_str, username,
+                                                      task['completed'],
+                                                      task['title'])
+                f.write(info)
