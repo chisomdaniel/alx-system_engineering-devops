@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# reload gunicorn with no downtime (gracefully)
+# shellcheck disable=SC2009
+ps aux | grep gunicorn | grep api.v1.app:app | awk '{ print $2 }' | xargs kill -HUP
